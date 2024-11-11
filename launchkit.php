@@ -161,8 +161,6 @@ class LaunchKit {
     public function init() {
         require_once( 'includes/class-wplk-deleter.php' );
         require_once( 'includes/class-wplk-functions-launchkit.php');
-        require_once( 'includes/class-wplk-installer.php' );
-        require_once( 'includes/class-wplk-license-loader.php');
         require_once( 'includes/class-wplk-manager.php');
     }
 
@@ -411,23 +409,12 @@ class LaunchKit {
             <nav class="nav-tab-wrapper">
                 <a href="?page=wplk&tab=settings" class="nav-tab <?php if ($tab === 'settings'): ?>nav-tab-active<?php endif; ?>"><?php esc_html_e('Get Started', 'wplk'); ?></a>
                 <a href="?page=wplk&tab=featured" class="nav-tab <?php if ($tab === 'featured'): ?>nav-tab-active<?php endif; ?>"><?php esc_html_e('Features', 'wplk'); ?></a>
-                <a href="?page=wplk&tab=installer" class="nav-tab <?php if ($tab === 'installer'): ?>nav-tab-active<?php endif; ?>"><?php esc_html_e('Pro Features', 'wplk'); ?></a>
-
+            
             </nav>
 
             <div class="wplk-wrap">
                 <div class="tab-content">
                     <?php switch($tab) :
-                    case 'installer': ?>
-                        <div class="wplk-dashboard__content">
-                            <div class="wplk-inner">
-                                <?php
-                                $installer = new WPLKInstaller();
-                                $installer->lk_get_meta_plugin_installer_page();
-                                ?>
-                            </div>
-                        </div>
-                    <?php break;
                     case 'deleter': ?>
                         <div class="wplk-dashboard__content">
                             <div class="wplk-inner">
